@@ -1,10 +1,8 @@
 import os
 from decouple import config
 
-BASE_DIR = os.path.dirname(
-           os.path.dirname(
-           os.path.dirname(
-           os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 SECRET_KEY = config('SECRET_KEY')
 
@@ -15,8 +13,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'core',
+
 ]
 
 MIDDLEWARE = [
@@ -29,7 +28,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'change_name.urls'
 
 TEMPLATES = [
     {
@@ -47,7 +46,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'change_name.wsgi.application'
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -65,6 +65,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_files')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 

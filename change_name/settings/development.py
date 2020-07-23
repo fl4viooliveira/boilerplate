@@ -7,6 +7,8 @@ INSTALLED_APPS += ['debug_toolbar']
 
 MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 
+# DEBUG TOOLBAR SETTINGS
+
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
     'debug_toolbar.panels.timer.TimerPanel',
@@ -26,7 +28,6 @@ DEBUG_TOOLBAR_PANELS = [
 def show_toolbar(request):
     return True
 
-
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
     'SHOW_TOOLBAR_CALLBACK': show_toolbar
@@ -41,4 +42,3 @@ DATABASES = {
 
 STRIPE_PUBLIC_KEY = ''
 STRIPE_SECRET_KEY = ''
-

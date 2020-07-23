@@ -1,5 +1,5 @@
-from django.core.management.base import BaseCommand
 import os
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -11,16 +11,16 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         new_project_name = kwargs['new_project_name']
 
-        # bit of logic to rename the project
+        # logic for renaming the files
 
-        files_to_rename = ['myproject/settings/base.py', 'myproject/wsgi.py', 'manage.py']
-        folder_to_rename = 'myproject'
+        files_to_rename = ['change_name/settings/base.py', 'change_name/wsgi.py', 'manage.py', 'core/management/commands/rename.py']
+        folder_to_rename = 'change_name'
 
         for f in files_to_rename:
             with open(f, 'r') as file:
                 filedata = file.read()
 
-            filedata = filedata.replace('demo', new_project_name)
+            filedata = filedata.replace('change_name', new_project_name)
 
             with open(f, 'w') as file:
                 file.write(filedata)
@@ -28,6 +28,3 @@ class Command(BaseCommand):
         os.rename(folder_to_rename, new_project_name)
 
         self.stdout.write(self.style.SUCCESS('Project has been renamed to %s' % new_project_name))
-
-
-
